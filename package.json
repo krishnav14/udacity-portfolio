@@ -1,0 +1,28 @@
+{
+  "name": "portfolio",
+  "version": "1.0.0",
+  "description": "Portfolio for myself",
+  "main": "gulpfile.js",
+  "dependencies": {
+    "bootstrap": "^3.3.6",
+    "normalize.css": "^4.1.1"
+  },
+  "devDependencies": {
+    "del": "^2.2.0",
+    "gulp": "^3.9.1",
+    "gulp-clean-css": "^2.0.6",
+    "gulp-rename": "^1.2.2",
+    "gulp-responsive": "^2.3.0",
+    "gulp-sourcemaps": "^1.6.0",
+    "run-sequence": "^1.1.5"
+  },
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "",
+  "license": "ISC",
+  "engines": {
+    "node": "*",
+    "npm": "*"
+  }
+}

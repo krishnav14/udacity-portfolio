@@ -1,0 +1,7 @@
+{
+  "nodeSrc" : "./node_modules/",
+  "src" : "./src/",
+  "bootstrapPath" : "bootstrap/",
+  "dist" : "./dist/",
+  "normalizePath" : "normalize.css/"
+}
