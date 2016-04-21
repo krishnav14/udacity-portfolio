@@ -7,6 +7,7 @@ var cleanCss = require('gulp-clean-css');
 var sourcemaps = require('gulp-sourcemaps');
 var rename = require('gulp-rename');
 var gp_concat = require('gulp-concat');
+
 var globalResponsiveParams = {
       errorOnEnlargement: false,
       errorOnUnused: false,
@@ -21,7 +22,7 @@ var responsiveConfigParams = {
   '*_main*.{png,jpg,JPG,jpeg,JPEG}': [{
     width: 700,
     rename: {
-      suffix: '-700px@1x'
+      suffix: '-700px@1x',
     }
   },{
     width: 700*2,
@@ -37,6 +38,37 @@ var responsiveConfigParams = {
     width: 1000*2,
     rename: {
       suffix: '-1000@2x'
+    }
+  }],
+  '*_featured*.{png,jpg,JPG,jpeg,JPEG}': [{
+    width: 220,
+    rename: {
+      suffix: '-220px@1x',
+    }
+  },{
+    width: 220*2,
+    rename: {
+      suffix: '-220@2x',
+    }
+  },{
+    width: 400,
+    rename: {
+      suffix: '-400@1x',
+    }
+  },{
+    width: 400*2,
+    rename: {
+      suffix: '-400@2x'
+    }
+  },{
+    width: 800,
+    rename: {
+      suffix: '-800@1x',
+    }
+  },{
+    width: 800*2,
+    rename: {
+      suffix: '-800@2x'
     }
   }]
 };

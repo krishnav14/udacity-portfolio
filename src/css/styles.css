@@ -1,4 +1,4 @@
-*, *:after, *:before {
+* {
   -webkit-box-sizing: border-box;
   -moz-box-sizing: border-box;
   box-sizing: border-box;
@@ -9,7 +9,7 @@ body {
   font-weight: 600;
 }
 
-img {
+img{
   max-width: 100%;
 }
 
@@ -26,21 +26,31 @@ img {
   color: #c2c2a3;
 }
 
-@media screen and (max-width: 700px) {
-  .header-title {
-    width: 100%;
+.featured-work-container figure {
+  padding: 1em 0;
+}
+
+.featured-work-container  figcaption {
+  font-size: 14pt;
+}
+
+/*
+  For MOBILE DEVICES
+*/
+@media screen and (max-width: 768px) {
+  .header-icon, .header-icon * {
+    display: none;
   }
 
   .header-title, .header-title * {
     text-align: center;
   }
-
-  .header-icon, .header-icon * {
-    display: none;
-  }
 }
 
-@media screen and (min-width: 700px) {
+/*
+  For larger screens
+  */
+@media screen and (min-width: 768px) {
   .header-title, .header-title * {
     text-align: right;
   }
@@ -50,6 +60,9 @@ img {
   }
 }
 
+/*
+  For Desktops
+  */
 @media screen and (min-width:900px) {
   body{
     width: 900px;
