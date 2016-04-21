@@ -10,6 +10,7 @@ body {
 }
 
 img {
+  max-width: 100%;
 }
 
 .header-icon img {
@@ -19,6 +20,10 @@ img {
 
 .header-title {
   margin: 1em auto;
+}
+
+.featured-work-title {
+  color: #c2c2a3;
 }
 
 @media screen and (max-width: 700px) {
@@ -39,6 +44,7 @@ img {
   .header-title, .header-title * {
     text-align: right;
   }
+
   .header-icon, .header-icon *{
     display: inline;
   }

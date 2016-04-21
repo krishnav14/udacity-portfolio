@@ -18,25 +18,25 @@ var globalResponsiveParams = {
 }
 
 var responsiveConfigParams = {
-  '*_main.{png,jpg,JPG,jpeg,JPEG}': [{
+  '*_main*.{png,jpg,JPG,jpeg,JPEG}': [{
     width: 700,
     rename: {
       suffix: '-700px@1x'
     }
   },{
-    width: 1400,
+    width: 700*2,
     rename: {
       suffix: '-700@2x'
     }
   },{
     width: 1000,
     rename: {
-      suffix: '1000@1x'
+      suffix: '-1000@1x'
     }
   },{
-    width: 2000,
+    width: 1000*2,
     rename: {
-      suffix: '1000@2x'
+      suffix: '-1000@2x'
     }
   }]
 };
