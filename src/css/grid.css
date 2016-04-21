@@ -1,0 +1,101 @@
+/* Grid Using https://css-tricks.com/dont-overthink-it-grids/
+  * Using grids with outside gutters
+ */
+
+*, *:after, *:before {
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  box-sizing: border-box;
+}
+
+.grid {
+  width: 100%;
+  padding: 20px 0 20px 20px;
+}
+
+.grid-pad {
+
+}
+
+.container {
+  display: flex;
+  flex-wrap: wrap;
+}
+
+/* Micro Clearfix hack */
+.clearfix:before,
+.clearfix:after {
+    content: " "; /* 1 */
+    display: table; /* 2 */
+}
+
+.clearfix:after {
+    clear: both;
+}
+
+/**
+ * For IE 6/7 only
+ * Include this rule to trigger hasLayout and contain floats.
+ */
+.clearfix {
+    *zoom: 1;
+}
+
+
+.row {
+  width: 100%;
+}
+
+.col-1 {
+  width: calc(100% / 12 * 1);
+}
+
+.col-2 {
+  width: calc(100% / 12 * 2);
+}
+
+
+.col-3 {
+  width: calc(100% / 12 * 3);
+}
+
+.col-4 {
+  width: calc(100% / 12 * 4);
+}
+
+.col-5 {
+  width: calc(100% / 12 * 5);
+}
+
+.col-6 {
+  width: calc(100% / 12 * 6);
+}
+
+.col-7 {
+  width: calc(100% / 12 * 7);
+}
+
+.col-8 {
+  width: calc(100% / 12 * 8);
+}
+
+.col-9 {
+  width: calc(100% / 12 * 9);
+}
+
+.col-10 {
+  width: calc(100% / 12 * 10);
+}
+
+.col-11 {
+  width: calc(100% / 12 * 11);
+}
+
+.col-12 {
+  width: calc(100% / 12 * 12);
+}
+
+[class*='col-'] {
+  float: left;
+  padding-right: 20px;
+}

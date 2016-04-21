@@ -1,12 +1,45 @@
 var gulp = require('gulp');
 var config = require('./config.json');
 var del = require('del');
-var responsive = require('gulp-responsive');
+var gp_responsive = require('gulp-responsive');
 var runSequence = require('run-sequence');
 var cleanCss = require('gulp-clean-css');
 var sourcemaps = require('gulp-sourcemaps');
 var rename = require('gulp-rename');
+var gp_concat = require('gulp-concat');
+var globalResponsiveParams = {
+      errorOnEnlargement: false,
+      errorOnUnused: false,
+      passThroughUnused: true,
+      quality: 80,
+      withMetadata: false,
+      compressionLevel: 7,
+      max: true,
+}
 
+var responsiveConfigParams = {
+  '*_main.{png,jpg,JPG,jpeg,JPEG}': [{
+    width: 700,
+    rename: {
+      suffix: '-700px@1x'
+    }
+  },{
+    width: 1400,
+    rename: {
+      suffix: '-700@2x'
+    }
+  },{
+    width: 1000,
+    rename: {
+      suffix: '1000@1x'
+    }
+  },{
+    width: 2000,
+    rename: {
+      suffix: '1000@2x'
+    }
+  }]
+};
 /*
   * Clean task to delete the dist dir
 */
@@ -35,7 +68,8 @@ gulp.task('copyMinNormalizeToDist',function(){
 * Create images in different sizes
 */
 gulp.task('create-responsive',function(){
-  return gulp.src(config.src+"img_src/responsive/"+"**/*.{png,jpeg,jpg}")
+  return gulp.src(config.src+"img_src/responsive/"+"**/*.{png,jpeg,jpg,JPG,JPEG,PNG}")
+  .pipe(gp_responsive(responsiveConfigParams,globalResponsiveParams))
   .pipe(gulp.dest(config.dist+"img/"));
 });
 
@@ -60,6 +94,7 @@ gulp.task('copyImgToDist',['create-responsive'],function() {
 */
 gulp.task('minifyCss',['copyMinBootstrapToDist','copyMinNormalizeToDist'],function(){
   return gulp.src(config.src+"css/**/*")
+    .pipe(gp_concat("styles.css"))
     .pipe(sourcemaps.init())
     .pipe(cleanCss())
     .pipe(sourcemaps.write())
