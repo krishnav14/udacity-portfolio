@@ -1,23 +1,26 @@
+<!doctype html>
 <html lang="en">
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" type="text/css" href="external/css/normalize.min.css" />
-    <link rel="stylesheet" type="text/css" href="external/css/bootstrap.min.css" />
-    <link href='https://fonts.googleapis.com/css?family=Raleway:400,600,300' rel='stylesheet' type='text/css'>
+    <link rel="stylesheet" href="external/css/normalize.min.css" >
+    <link rel="stylesheet" href="external/css/bootstrap.min.css" >
+    <link rel='stylesheet' href='https://fonts.googleapis.com/css?family=Raleway:400,600,300'>
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.6.1/css/font-awesome.min.css">
-    <link rel="stylesheet" type="text/css" href="css/styles.css" />
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.2/jquery.min.js"></script>
+    <script src="external/js/bootstrap.min.js"></script>
+    <link rel="stylesheet" href="css/styles.css" />
     <title>Krishnamoorthy Venkatraman's Portfolio</title>
   </head>
   <body>
         <div class="container-fluid">
           <div class="row">
-            <div class="hidden-xs col-sm-2 header-icon text-center">
+            <div class="col-xs-12 col-sm-2 header-icon text-center">
               <img src="img/svg/icon.svg" alt="Logo" />
             </div>
             <div class="col-xs-12 col-sm-10 header-title">
               <h1>Krishnamoorthy Venkatraman</h1>
-              <h3>Front-End Ninja</h2>
+              <h3>Front-End Ninja</h3>
             </div>
           </div>
           <div class="row">
@@ -27,11 +30,51 @@
           </div>
           <div class="row">
             <div class="col-xs-12">
-              <picture>
-                <source media="(max-width:700px)" srcset="img/niagara_main_crop-700@1x.jpg 1x,img/niagara_main_crop-700@2x.jpg 2x" type="image/jpeg" />
-                <source media="(min-width:700px)" srcset="img/niagara_main-1000@1x.jpg 1x,img/niagara_main-1000@2x.jpg 2x" type="image/jpeg" />
-                <img class="img-responsive"src="img/niagara_main-1000@1x.jpg" alt="Amazing Niagara" />
-              </picture>
+              <div id="carousel-slider" class="carousel slide" data-ride="carousel">
+                <!-- Indicators -->
+                <ol class="carousel-indicators">
+                  <li data-target="#carousel-slider" data-slide-to="0" class="active"></li>
+                  <li data-target="#carousel-slider" data-slide-to="1"></li>
+                </ol>
+
+                <!-- Wrapper for slides -->
+                <div class="carousel-inner" role="listbox">
+                  <div class="item active">
+                    <picture>
+                      <source media="(max-width:700px)" srcset="img/niagara_main_crop-700@1x.jpg 1x,img/niagara_main_crop-700@2x.jpg 2x" type="image/jpeg" />
+                      <source media="(min-width:700px)" srcset="img/niagara_main-1000@1x.jpg 1x,img/niagara_main-1000@2x.jpg 2x" type="image/jpeg" />
+                      <img class="img-responsive" src="img/niagara_main-1000@1x.jpg" alt="Amazing Niagara" />
+                    </picture>
+                    <div class="carousel-caption">
+                      <h3>Niagara Falls - an amazing place to be</h3>
+                      <p>
+                        Went there when my family came to visit
+                      </p>
+                    </div>
+                  </div>
+                  <div class="item">
+                    <picture>
+                      <source media="(max-width:700px)" srcset="img/dubai_main_crop-700@1x.jpg 1x,img/dubai_main_crop-700@2x.jpg 2x" type="image/jpeg" />
+                      <source media="(min-width:700px)" srcset="img/dubai_main-1000@1x.jpg 1x,img/dubai_main-1000@2x.jpg 2x" type="image/jpeg" />
+                      <img class="img-responsive" src="img/dubai_main-1000@1x.jpg" alt="Amazing Dubai" />
+                    </picture>
+                    <div class="carousel-caption">
+                      <h3>Dubai - A gem in the desert</h3>
+                    </div>
+                  </div>
+                  ...
+                </div>
+
+                <!-- Controls -->
+                <a class="left carousel-control" href="#carousel-slider" role="button" data-slide="prev">
+                  <span class="glyphicon glyphicon-chevron-left" aria-hidden="true"></span>
+                  <span class="sr-only">Previous</span>
+                </a>
+                <a class="right carousel-control" href="#carousel-slider" role="button" data-slide="next">
+                  <span class="glyphicon glyphicon-chevron-right" aria-hidden="true"></span>
+                  <span class="sr-only">Next</span>
+                </a>
+              </div>
             </div>
           </div>
           <div class="row">
@@ -71,17 +114,18 @@
                 <figure>
                   <picture>
                     <source media="(max-width: 768px)" srcset="img/arlingtondolphin_featured-800@1x.jpg 1x,img/arlingtondolphin_featured-800@2x.jpg 2x"/>
-                    <source media="(min-width: 768px)" srcset="img/detroitfireworks_featured-400@1x.jpg 1x,img/arlingtondolphin_featured-400@2x.jpg 2x"/>
+                    <source media="(min-width: 768px)" srcset="img/arlingtondolphin_featured-400@1x.jpg 1x,img/arlingtondolphin_featured-400@2x.jpg 2x"/>
                     <img class="img-rounded" src="img/arlingtondolphin_featured-400@1x.jpg" alt="Dolphin at Arlington TX" />
                   </picture>
                   <figcaption>
                     Texas State Aquarium
-                    <a href="https://github.com/krishnav14"><i class="fa fa-github" aria-hidden="false"></i></a>
+                    <a href="https://github.com/krishnav14"><i class="fa fa-github " aria-hidden="false"></i></a>
                   </figcaption>
                 </figure>
               </div>
             </div>
           </div>
         </div>
+    <script src="js/script.js"></script>
   </body>
 </html>

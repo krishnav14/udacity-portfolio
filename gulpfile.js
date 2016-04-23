@@ -22,7 +22,7 @@ var responsiveConfigParams = {
   '*_main*.{png,jpg,JPG,jpeg,JPEG}': [{
     width: 700,
     rename: {
-      suffix: '-700px@1x',
+      suffix: '-700@1x',
     }
   },{
     width: 700*2,
@@ -43,7 +43,7 @@ var responsiveConfigParams = {
   '*_featured*.{png,jpg,JPG,jpeg,JPEG}': [{
     width: 220,
     rename: {
-      suffix: '-220px@1x',
+      suffix: '-220@1x',
     }
   },{
     width: 220*2,
@@ -72,6 +72,7 @@ var responsiveConfigParams = {
     }
   }]
 };
+
 /*
   * Clean task to delete the dist dir
 */
@@ -82,9 +83,25 @@ gulp.task('clean',function(){
 /*
 * Copy minified bootstrap to dist folder from node modules
 */
-gulp.task('copyMinBootstrapToDist',function(){
-  return gulp.src(config.nodeSrc+config.bootstrapPath+'dist/css/bootstrap.min.css')
+gulp.task('copyMinBootstrapToDist',['copyBootstrapFontToDist'],function(){
+  return gulp.src([config.nodeSrc+config.bootstrapPath+'dist/css/bootstrap.min.css'])
   .pipe(gulp.dest(config.dist+'external/css'));
+});
+
+/*
+* Copy required bootstrap font to dist
+*/
+gulp.task('copyBootstrapFontToDist',function(){
+  return gulp.src([config.nodeSrc+config.bootstrapPath+'dist/fonts/glyphicons-halflings-regular.woff',config.nodeSrc+config.bootstrapPath+'dist/fonts/glyphicons-halflings-regular.woff2'])
+  .pipe(gulp.dest(config.dist+'external/fonts'));
+});
+
+/*
+* Copy Bootstrap js to Dist
+*/
+gulp.task('copyBootstrapJsToDist',function(){
+  return gulp.src([config.nodeSrc+config.bootstrapPath+'dist/js/bootstrap.min.js'])
+  .pipe(gulp.dest(config.dist+'external/js'));
 });
 
 /*
@@ -133,7 +150,15 @@ gulp.task('minifyCss',['copyMinBootstrapToDist','copyMinNormalizeToDist'],functi
     .pipe(gulp.dest(config.dist+"css/"));
 });
 
-gulp.task('srcToDist',['copyHtmlToDist','copyImgToDist','minifyCss']);
+/*
+* Minify and Copy the Js to dist
+* TODO: Minification
+*/
+gulp.task('minifyJs',['copyBootstrapJsToDist'],function(){
+  return gulp.src(config.src+"js/**/*")
+    .pipe(gulp.dest(config.dist+"js/"));
+})
+gulp.task('srcToDist',['copyHtmlToDist','copyImgToDist','minifyCss','minifyJs']);
 gulp.task('dist',['srcToDist'])
 gulp.task('dev',['create-responsive']);
 gulp.task('default',function(){

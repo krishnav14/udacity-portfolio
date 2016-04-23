@@ -6,11 +6,19 @@
 
 body {
   font-family: Raleway,sans-serif;
-  font-weight: 600;
+  font-weight: 400;
 }
 
-img{
+img {
   max-width: 100%;
+}
+
+p {
+  font-weight: 300;
+}
+
+h1 {
+  font-weight: 400;
 }
 
 .header-icon img {
@@ -34,17 +42,27 @@ img{
   font-size: 14pt;
 }
 
+.featured-work-container figcaption i {
+  font-size: 20pt;
+}
+
 /*
   For MOBILE DEVICES
 */
 @media screen and (max-width: 768px) {
-  .header-icon, .header-icon * {
-    display: none;
-  }
 
   .header-title, .header-title * {
     text-align: center;
   }
+
+  .featured-work-container  figcaption {
+    font-size: 16pt;
+  }
+
+  .featured-work-container figcaption i {
+    font-size: 50px;
+  }
+
 }
 
 /*
@@ -55,7 +73,7 @@ img{
     text-align: right;
   }
 
-  .header-icon, .header-icon *{
+  .header-icon, .header-icon * {
     display: inline;
   }
 }
@@ -69,4 +87,5 @@ img{
     margin-left: auto;
     margin-right: auto;
   }
+
 }
